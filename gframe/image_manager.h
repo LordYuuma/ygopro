@@ -9,6 +9,10 @@
 namespace ygo {
 
 class ImageManager {
+#ifdef YGOPRO_ENVIRONMENT_PATHS
+private:
+	std::string image_path;
+#endif
 public:
 	bool Initial();
 	void SetDevice(irr::IrrlichtDevice* dev);
@@ -16,6 +20,10 @@ public:
 	void RemoveTexture(int code);
 	void ResizeTexture();
 	irr::video::ITexture* GetTextureFromFile(const char* file, s32 width, s32 height);
+#ifdef YGOPRO_ENVIRONMENT_PATHS
+	irr::video::IImage* GetImageFromImagePath(const char* file);
+	irr::video::ITexture* GetTextureFromImagePath(const char* file, s32 width, s32 height);
+#endif
 	irr::video::ITexture* GetTexture(int code, bool fit = false);
 	irr::video::ITexture* GetTextureThumb(int code);
 	irr::video::ITexture* GetTextureField(int code);
