@@ -107,24 +107,24 @@ void ImageManager::ResizeTexture() {
 	irr::s32 bgHeight = 640 * mainGame->yScale;
 	driver->removeTexture(tCover[0]);
 	driver->removeTexture(tCover[1]);
-	tCover[0] = GetTextureFromFile("textures/cover.jpg", imgWidth, imgHeight);
-	tCover[1] = GetTextureFromFile("textures/cover2.jpg", imgWidth, imgHeight);
+	tCover[0] = GetTextureFromFile(DATA("textures/cover.jpg"), imgWidth, imgHeight);
+	tCover[1] = GetTextureFromFile(DATA("textures/cover2.jpg"), imgWidth, imgHeight);
 	if(!tCover[1])
 		tCover[1] = tCover[0];
 	driver->removeTexture(tUnknown);
 	driver->removeTexture(tUnknownFit);
 	driver->removeTexture(tUnknownThumb);
-	tUnknown = GetTextureFromFile("textures/unknown.jpg", CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
-	tUnknownFit = GetTextureFromFile("textures/unknown.jpg", imgWidthFit, imgHeightFit);
-	tUnknownThumb = GetTextureFromFile("textures/unknown.jpg", imgWidthThumb, imgHeightThumb);
+	tUnknown = GetTextureFromFile(DATA("textures/unknown.jpg"), CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
+	tUnknownFit = GetTextureFromFile(DATA("textures/unknown.jpg"), imgWidthFit, imgHeightFit);
+	tUnknownThumb = GetTextureFromFile(DATA("textures/unknown.jpg"), imgWidthThumb, imgHeightThumb);
 	driver->removeTexture(tBackGround);
-	tBackGround = GetTextureFromFile("textures/bg.jpg", bgWidth, bgHeight);
+	tBackGround = GetTextureFromFile(DATA("textures/bg.jpg"), bgWidth, bgHeight);
 	driver->removeTexture(tBackGround_menu);
-	tBackGround_menu = GetTextureFromFile("textures/bg_menu.jpg", bgWidth, bgHeight);
+	tBackGround_menu = GetTextureFromFile(DATA("textures/bg_menu.jpg"), bgWidth, bgHeight);
 	if(!tBackGround_menu)
 		tBackGround_menu = tBackGround;
 	driver->removeTexture(tBackGround_deck);
-	tBackGround_deck = GetTextureFromFile("textures/bg_deck.jpg", bgWidth, bgHeight);
+	tBackGround_deck = GetTextureFromFile(DATA("textures/bg_deck.jpg"), bgWidth, bgHeight);
 	if(!tBackGround_deck)
 		tBackGround_deck = tBackGround;
 }
