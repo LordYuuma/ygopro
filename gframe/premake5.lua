@@ -3,7 +3,7 @@ local ygopro_config=function(static_core)
 	cppdialect "C++14"
 	rtti "Off"
 	files { "**.cpp", "**.cc", "**.c", "**.h", "**.hpp" }
-	excludes { "lzma/**", "sound_sdlmixer.*", "sound_irrklang.*", "Android/**" }
+	excludes { "lzma/**", "sound_sdlmixer.*", "sound_irrklang.*", "sound_canberra.*", "Android/**" }
 
 	defines "CURL_STATICLIB"
 	if _OPTIONS["pics"] then
@@ -48,6 +48,11 @@ local ygopro_config=function(static_core)
 			filter "system:macosx"
 				links { "iconv", "CoreAudio.framework", "AudioToolbox.framework", "CoreVideo.framework", "ForceFeedback.framework", "Carbon.framework" }
 		end
+                if _OPTIONS["sound"]=="canberra" then
+                        defines { "_REENTRANT", "YGOPRO_USE_CANBERRA" }
+                        files "sound_canberra.*"
+                        links { "canberra" }
+                end
 	end
 
 	filter "system:windows"
